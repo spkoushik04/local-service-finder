@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Service - Local Service Finder</title>
+    <meta name="description" content="Schedule an appointment with a local verified service provider.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function() {
+            try {
+                var user = localStorage.getItem('lsf_user');
+                if (!user) window.location.replace('login.html');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+                <li class="nav-item"><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Booking Form Container -->
+    <main class="form-page-wrapper">
+        <div class="auth-card wide-card" id="booking-card-body">
+            <div class="auth-header">
+                <div style="width: 54px; height: 54px; border-radius: var(--radius-md); background: var(--primary-light); color: var(--primary); display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1rem;">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h2>Request a Local Service</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Choose your technician and select your preferred doorstep visit timing.</p>
+            </div>
+
+            <form id="service-booking-form">
+                <!-- Customer Contact Info -->
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="customerName">Customer Name</label>
+                        <input type="text" id="customerName" class="form-control" placeholder="Rahul Sharma" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="customerPhone">Phone Number</label>
+                        <input type="tel" id="customerPhone" class="form-control" placeholder="9840123456" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail" class="form-control" placeholder="rahul@example.com" required>
+                </div>
+
+                <!-- Provider & Service Selection -->
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="providerSelect">Select Service Provider</label>
+                        <select id="providerSelect" class="form-control" required>
+                            <option value="">Loading providers from database...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="serviceSelect">Select Specific Service</label>
+                        <select id="serviceSelect" class="form-control">
+                            <option value="">-- First select a provider --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Date & Time Slot -->
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="bookingDate">Preferred Date</label>
+                        <input type="date" id="bookingDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="bookingTime">Preferred Time Slot</label>
+                        <select id="bookingTime" class="form-control" required>
+                            <option value="09:00 AM">09:00 AM - 11:00 AM</option>
+                            <option value="11:00 AM">11:00 AM - 01:00 PM</option>
+                            <option value="02:00 PM" selected>02:00 PM - 04:00 PM</option>
+                            <option value="04:00 PM">04:00 PM - 06:00 PM</option>
+                            <option value="06:00 PM">06:00 PM - 08:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Address & Additional Requirements -->
+                <div class="form-group">
+                    <label class="form-label" for="bookingAddress">Service Address (Max 50)</label>
+                    <textarea id="bookingAddress" class="form-control" placeholder="Enter doorstep address (door number, street, area, pin)" maxlength="50" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="bookingDescription">Additional Requirements / Problem Description (Max 200)</label>
+                    <textarea id="bookingDescription" class="form-control" placeholder="Describe the issue or special instructions for the technician..." maxlength="200"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="booking-submit-btn">
+                    <i class="fas fa-paper-plane"></i> Request Service
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

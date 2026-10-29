@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Tips, Tricks &amp; Do's and Don'ts | Local Service Finder</title>
+    <meta name="description" content="Expert home maintenance tips, tricks, and essential 5 Do's & Don'ts for Acting Driver, Bike & Car Mechanic, Solar Panel, AC, Electrical, Plumbing, and more.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-handshake-angle brand-icon"></i>
+                <span class="brand-text">Local<span class="brand-highlight">Service</span>Finder</span>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+                <li class="nav-item"><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="tips.html" class="nav-link active"><i class="fas fa-lightbulb" style="color: #eab308; margin-right: 4px;"></i> Tips</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Hero Banner -->
+    <header class="tips-hero">
+        <div class="container">
+            <span class="tips-hero-tag"><i class="fas fa-shield-halved"></i> Expert Knowledge Base</span>
+            <h1>Service Tips, Tricks &amp; Best Practices</h1>
+            <p>Master your home and vehicle maintenance with certified pro tips. Essential 5 Do's &amp; 5 Don'ts for every service to save costs, avoid breakdowns, and stay 100% safe.</p>
+
+            <div class="tips-controls-wrapper">
+                <div class="tips-search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="tips-search-input" placeholder="Search tips (e.g. tyre pressure, AC water leak, solar wash)..." autocomplete="off">
+                </div>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()" style="height: 44px; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 999px;">
+                    <i class="fas fa-print"></i> Print Checklist
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Horizontal Filter Tabs -->
+    <div class="tips-filter-bar">
+        <div class="container">
+            <div class="tips-tab-scroll" id="tips-tab-bar">
+                <button class="tips-tab-btn active" data-category="all"><i class="fas fa-layer-group"></i> All Services (13)</button>
+                <button class="tips-tab-btn" data-category="acting-driver"><i class="fas fa-id-card"></i> Acting Driver</button>
+                <button class="tips-tab-btn" data-category="bike-mechanic"><i class="fas fa-motorcycle"></i> Bike Mechanic</button>
+                <button class="tips-tab-btn" data-category="car-mechanic"><i class="fas fa-car"></i> Car Mechanic</button>
+                <button class="tips-tab-btn" data-category="solar-panel"><i class="fas fa-solar-panel"></i> Solar Panel</button>
+                <button class="tips-tab-btn" data-category="ac-repair"><i class="fas fa-snowflake"></i> AC Repair</button>
+                <button class="tips-tab-btn" data-category="electrical"><i class="fas fa-bolt"></i> Electrical</button>
+                <button class="tips-tab-btn" data-category="plumbing"><i class="fas fa-faucet-drip"></i> Plumbing</button>
+                <button class="tips-tab-btn" data-category="carpentry"><i class="fas fa-hammer"></i> Carpentry</button>
+                <button class="tips-tab-btn" data-category="cleaning"><i class="fas fa-broom"></i> Home Cleaning</button>
+                <button class="tips-tab-btn" data-category="painting"><i class="fas fa-paint-roller"></i> Painting</button>
+                <button class="tips-tab-btn" data-category="computer"><i class="fas fa-laptop-medical"></i> Computer</button>
+                <button class="tips-tab-btn" data-category="beauty"><i class="fas fa-spa"></i> Salon &amp; Beauty</button>
+                <button class="tips-tab-btn" data-category="pest"><i class="fas fa-bug"></i> Pest Control</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <main class="section" style="padding-top: 2rem; background: #f8fafc;">
+        <div class="container" id="tips-container">
+
+            <!-- 1. ACTING DRIVER -->
+            <article class="tips-service-card" data-category="acting-driver" id="acting-driver">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-shield-alt"></i> On-Demand Chauffeur</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-id-card"></i> Acting Driver Services</h2>
+                            <p class="tips-banner-desc">Professional guidelines for city errands, outstation family highway trips, and night chauffeur services in your personal car.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Acting+Driver" class="btn btn-primary btn-sm">
+                                <i class="fas fa-user-check"></i> Book Verified Driver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <!-- Pro Tips & Tricks Box -->
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>2-Minute Walkaround:</strong> Always check tyre pressure, fuel level, and Fastag balance with the driver before starting the trip.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Transmission Brief:</strong> Inform the driver about AMT/automatic transmission quirks, cruise control, or electronic handbrake operation beforehand.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Fatigue Management:</strong> For trips over 300 km or 6 hours, plan mandatory 15-minute tea breaks every 2.5 hours to keep driver alertness peak.</li>
+                        </ul>
+                    </div>
+                    <!-- 5 Do's & 5 Don'ts -->
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Verify Original DL:</strong> Inspect driver's physical Driving License and RTO badge upon arrival.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Keep Documents in Glovebox:</strong> Ensure RC book, valid vehicle insurance, and PUC certificate are readily accessible.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Test Brakes &amp; Reverse Camera:</strong> Have the driver perform a gentle test brake and mirror alignment before entering busy roads.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Transparent Bata Terms:</strong> Settle night allowance and food bata terms clearly in advance as listed in the app.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Inspect Spare Wheel:</strong> Confirm the stepney tyre is inflated and the car jack/spanner is present in the boot.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Encourage Over-speeding:</strong> Never ask the driver to violate speed limits or bypass red lights even if running late.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Allow Handheld Phone Usage:</strong> Prohibit personal phone calls without a hands-free bluetooth setup while cruising.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Leave Valuables in Cabin:</strong> Avoid leaving gold jewellery, open laptop bags, or high cash unattended inside the car.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Force Continuous Midnight Drives:</strong> Never force an exhausted driver to continue driving past 1:00 AM without rest.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Hand Keys Without Seatbelt:</strong> Never begin the ride until all occupants, including driver and co-passengers, are buckled up.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. BIKE MECHANIC -->
+            <article class="tips-service-card" data-category="bike-mechanic" id="bike-mechanic">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-wrench"></i> Two-Wheeler Care</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-motorcycle"></i> Bike Mechanic &amp; Maintenance</h2>
+                            <p class="tips-banner-desc">Crucial maintenance advice for scooters, commuter motorcycles, Royal Enfields, and electric two-wheelers.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Bike+Mechanic" class="btn btn-primary btn-sm">
+                                <i class="fas fa-wrench"></i> Book Bike Mechanic
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Engine Oil Dipstick Test:</strong> Inspect oil color every 1,000 km; if it turns charcoal black or feels gritty between fingers, schedule an immediate oil change.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Chain Slack Formula:</strong> Keep 25-30 mm of vertical chain play; an overtightened chain destroys the output shaft bearing and strains the gearbox.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Monsoon Waterproofing:</strong> Dab petroleum jelly or WD-40 on spark plug caps and ignition key slots to stop water-logged short circuits.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Maintain Cold Tyre Pressure:</strong> Check tyre PSI every week; correct pressure prevents rim dents and boosts mileage by 12%.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Lube Drive Chain Every 500 km:</strong> Clean with kerosene/chain cleaner and spray dedicated chain wax, especially after heavy rain.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Flush Brake Fluid Biannually:</strong> Replace DOT 3/4 brake fluid every 2 years to prevent brake lever sponginess and lockups.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Clean Air Filter Regularly:</strong> Tap out or replace the air filter every 4,000 km to protect engine piston rings from abrasive dust.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Insist on Genuine OEM Spares:</strong> Ensure oil filters, clutch cables, and spark plugs carry manufacturer hologram seals.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Ride with Half-Clutch:</strong> Resting your fingers on the clutch lever glazes and burns friction plates within 6 months.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Jet-Wash Electronics:</strong> Never blast high-pressure water jets directly into switchgear, digital consoles, or carburetors.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Drag the Rear Brake:</strong> Resting your foot on the rear pedal overheats brake shoes, warps drum hubs, and drags engine power.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Ignore Handlebar Wobbles:</strong> Front-end vibration signals worn steering cone bearings or bent alloy wheels.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Overload Electricals:</strong> Avoid heavy high-watt auxiliary lights without an upgraded relay and wiring harness.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. CAR MECHANIC -->
+            <article class="tips-service-card" data-category="car-mechanic" id="car-mechanic">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-car-side"></i> Automotive Specialist</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-car"></i> Car Mechanic &amp; Periodic Service</h2>
+                            <p class="tips-banner-desc">Professional car diagnostics, engine longevity practices, brake maintenance, and roadside emergency steps.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Car+Mechanic" class="btn btn-primary btn-sm">
+                                <i class="fas fa-car-wrench"></i> Book Car Mechanic
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>30-Second Turbo Idle:</strong> Let turbocharged engines idle for 30 seconds before shutoff; this cools turbine bearings and prevents oil coking.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Never Mix Tap Water with Coolant:</strong> Tap water causes mineral scaling inside the radiator. Always use pre-mixed 50:50 glycol coolant or distilled water.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>OBD-II Fault Log:</strong> If the Check Engine Light stays on, connect an OBD-II scanner immediately rather than resetting it blind.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Follow 10,000 km Oil Schedule:</strong> Replace engine oil, oil filter, and air filter strictly at scheduled mileage intervals.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Rotate Tyres Every 8,000 km:</strong> Perform 4-wheel rotation, computerized wheel alignment, and wheel balancing for even wear.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Check Brake Pad Thickness:</strong> Replace brake pads before the friction lining wears below 3 mm to protect expensive rotors.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Inspect Battery Terminal Voltage:</strong> Ensure the alternator generates 13.8V - 14.4V with headlights and AC turned on.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Replace Cabin AC Pollen Filter:</strong> Change the AC cabin filter every 6 months to ensure fresh odor-free airflow and maximum cooling.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Open Hot Radiator Caps:</strong> Pressurized boiling coolant steam will burst out causing severe chemical burn injuries.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Drive Through Deep Floods:</strong> Water sucked into the engine intake manifold causes instant catastrophic hydrostatic engine lock.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Rest Hand on Gear Shifter:</strong> Continuous pressure on the gear stick prematurely wears synchronizer rings and shifter forks.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Run on Empty Fuel Tank:</strong> Running with fuel light on sucks sediment from the tank bottom and overheats the in-tank fuel pump.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Mix Oil Grades:</strong> Never mix synthetic 5W-30 with heavy mineral 20W-50 oil as viscosity breakdown harms hydraulic tappets.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. SOLAR PANEL -->
+            <article class="tips-service-card" data-category="solar-panel" id="solar-panel">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-solar-panel"></i> Green Energy System</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-solar-panel"></i> Solar Panel &amp; Inverter Maintenance</h2>
+                            <p class="tips-banner-desc">Proven ways to maintain maximum PV generation efficiency, inverter battery health, and lightning surge safety.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Solar+Panel" class="btn btn-primary btn-sm">
+                                <i class="fas fa-tools"></i> Book Solar Technician
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Wash Before 8 AM:</strong> Cold water splashed onto solar panels heated by the afternoon sun causes micro-fractures in tempered solar glass.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Spot Bird Droppings Fast:</strong> Dried bird droppings block light and create localized hot-spots that permanently burn solar cell wafer strings.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Generation Logging:</strong> Check weekly unit generation (kWh) on your solar app; a sudden 15% drop points to shading or loose MC4 connectors.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Wash Twice Monthly with Soft Mop:</strong> Use soft microfiber mops and filtered demineralized water to remove pollution film.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Annual Structure Bolt Torque Check:</strong> Tighten all aluminum rail clamps and anchor bolts to withstand coastal gale winds.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Verify Earthing Pit Value (&lt; 5 Ohms):</strong> Water your chemical earthing pit every summer to keep earth resistance low against lightning.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Keep Inverter Well-Ventilated:</strong> Ensure 1 foot clearance around inverter cooling fins and clean fan vents from spider webs.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Trim Tree Branches:</strong> Prune nearby trees before monsoon to prevent shadow casting from morning to evening.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Use Abrasive Scrubbers:</strong> Metal scrubbers, harsh detergents, or scouring powders strip the anti-reflective glass coating.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Walk on Solar Panels:</strong> Never step or place heavy tools on panels; invisible cell micro-cracks drastically reduce lifespan.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Clean Under Blazing Midday Sun:</strong> High thermal shock can crack glass panels and water evaporates too fast leaving hard stains.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Touch DC Connectors Wet:</strong> High DC voltage (300V - 600V) from solar arrays is lethal; never tamper with cables with bare hands.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Bypass SPD Protections:</strong> Never disconnect DC/AC surge protection devices (SPD) or fuses in the distribution box.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5. AC REPAIR -->
+            <article class="tips-service-card" data-category="ac-repair" id="ac-repair">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-snowflake"></i> Climate Control</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-snowflake"></i> Air Conditioner Care &amp; Gas Safety</h2>
+                            <p class="tips-banner-desc">Save up to 25% on summer electricity bills, eliminate mold smells, and protect your inverter compressor.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=AC+Repair" class="btn btn-primary btn-sm">
+                                <i class="fas fa-fan"></i> Book AC Technician
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>The 24°C Comfort Standard:</strong> Running your AC at 24°C instead of 18°C saves 6% electricity per degree (nearly 24% lower power bill!).</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Pair with Ceiling Fan at Low Speed:</strong> A low-speed ceiling fan circulates cool air evenly, allowing you to raise AC temperature by 2°C with identical comfort.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Dry Mode for Rainy Seasons:</strong> Switch to 'Dry' mode (water droplet icon) during monsoon; it strips humidity without freezing the room.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Wash Nylon Mesh Filters Every 15 Days:</strong> Rinse dust filters with plain tap water and air-dry before popping them back.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Annual High-Pressure Jet Chemical Wash:</strong> Deep clean indoor evaporator and outdoor condenser coils before summer peaks.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Maintain 2 Feet Clearance for Outdoor Unit:</strong> Keep the condenser fan clear of drying clothes, walls, and potted plants.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Inspect Drain Pipe Slope:</strong> Verify the drain hose tilts downward smoothly so condensation water never overflows inside.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Seal Window &amp; Door Crevices:</strong> Install rubber draft seals along room doors to prevent chilled air escaping.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Run with Doors Ajar:</strong> Leaving bedroom doors open overworks the compressor continuously, leading to early motor burnout.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Place Lamps Near Thermostat:</strong> Heat from lamps or televisions tricks the temperature sensor into cooling endlessly.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Ignore Indoor Water Dripping:</strong> Condensate leakage breeds black mold inside wall plaster and ruins bedroom wallpaper.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Ignore Ice on Copper Pipes:</strong> Frosting indicates a dangerous gas leak or severely clogged airflow; turn off AC immediately.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Use Underrated Extension Plugs:</strong> Never run ACs on generic 6A outlets without dedicated 16A MCB wiring.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6. ELECTRICAL -->
+            <article class="tips-service-card" data-category="electrical" id="electrical">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-bolt"></i> Safety &amp; Wiring</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-bolt"></i> Home Electrical Safety &amp; MCB Care</h2>
+                            <p class="tips-banner-desc">Protect your family from shocks, prevent electrical short circuits, and safeguard expensive gadgets.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Electrical" class="btn btn-primary btn-sm">
+                                <i class="fas fa-bolt"></i> Book Certified Electrician
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Monthly RCCB Test:</strong> Press the 'T' (Test) push button on your main electrical board RCCB once a month; it must instantly trip to prove shock protection works.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>The Warm Plug Warning:</strong> If any 3-pin plug feels hot to the touch after 20 minutes, the socket internal copper leaves are loose and sparking. Replace it immediately.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Surge Protector Strip:</strong> Always plug OLED TVs, desktop PCs, and gaming consoles into spike-guard surge protectors rather than bare wall sockets.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Cut Main MCB Before Repairs:</strong> Always isolate the main electrical breaker before changing light fixtures or ceiling fans.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Use ISI Fire-Retardant (FR) Copper Wires:</strong> Ensure 4.0 sq.mm wiring for AC/geysers and 2.5 sq.mm for standard power points.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Verify Active Earth Resistance:</strong> Ensure proper 3-pin grounding for metallic body appliances (fridges, microwaves, geysers).</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Upgrade to Modular Switches:</strong> Replace old toggle switches with arc-shielded modular safety switchboards.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Unplug During Severe Thunderstorms:</strong> Disconnect Wi-Fi routers and cable TV lines to guard against lightning voltage spikes.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Daisy-Chain Multi-Plugs:</strong> Never stack multiple high-watt heaters or irons into one single extension socket.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Touch Switches with Wet Hands:</strong> Water drastically lowers skin electrical resistance, inviting fatal 230V shocks.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Wrap Thick Copper in Fuse:</strong> Bypassing fuse ratings with thick copper wire causes wall conduits to catch fire.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Run Cords Under Carpets:</strong> Foot traffic frays internal wire insulation unseen, causing sudden floor fires.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Ignore Burning Plastic Odor:</strong> A fishy/burning smell indicates overheating wiring. Turn off the main switch immediately!</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 7. PLUMBING -->
+            <article class="tips-service-card" data-category="plumbing" id="plumbing">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-faucet-drip"></i> Pipeline &amp; Drainage</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-faucet-drip"></i> Plumbing Care &amp; Water Leak Prevention</h2>
+                            <p class="tips-banner-desc">Prevent water damage, unclog stubborn drainage traps, and double the lifespan of taps and geysers.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Plumbing" class="btn btn-primary btn-sm">
+                                <i class="fas fa-faucet"></i> Book Expert Plumber
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>The Toilet Food Color Test:</strong> Put 5 drops of food dye in the flush cistern; if color creeps into the bowl within 15 minutes without flushing, your flapper valve is silently wasting 150 liters daily!</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Vinegar Aerator Soak:</strong> Unscrew low-flow tap aerators once every 3 months and soak in white vinegar for 30 minutes to dissolve mineral calcium crust.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Main Stopcock Location:</strong> Make sure every adult at home knows the exact position of the main water supply valve to shut it off during burst pipe emergencies.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Use Stainless Steel Sink Strainers:</strong> Catch food leftovers, tea leaves, and bathroom hair before they enter drain pipes.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Clean Overhead Water Tank Biannually:</strong> Wash sediment silt and algae buildup twice a year to maintain clean drinking water.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Wrap Teflon Tape Clockwise:</strong> Wrap 5-6 layers of PTFE Teflon tape clockwise over threads before screwing on new brass bib taps.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Test Geyser Pressure Relief Valve:</strong> Pull the spring safety valve lever on the water heater yearly to prevent tank burst risks.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Replace Aging Tap Washers Promptly:</strong> Fix dripping taps early before the constant drip cuts a groove into the brass valve seat.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Pour Hot Cooking Oil Down Sinks:</strong> Cooking fats solidify into rock-hard 'fatbergs' inside drain pipes that cause nasty backflows.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Flush Wipes or Dental Floss:</strong> Wet wipes and sanitary items do not dissolve; they clump and block city sewer lines.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Overtighten Tap Handles:</strong> Forcing tap handles beyond their stop point crushes rubber seals and cracks ceramic discs.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Overuse Caustic Drain Acids:</strong> Repeated harsh acid uncloggers generate heat that softens PVC joints and rots metal traps.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Ignore Damp Yellow Wall Patches:</strong> Wall dampness indicates concealed pipe leaks that slowly weaken concrete foundations.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 8. CARPENTRY -->
+            <article class="tips-service-card" data-category="carpentry" id="carpentry">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-hammer"></i> Woodcraft &amp; Hardware</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-hammer"></i> Carpentry &amp; Wooden Furniture Care</h2>
+                            <p class="tips-banner-desc">Preserve solid teak and modular plywood furniture, fix sticking doors, and silence squeaky hinges.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Carpentry" class="btn btn-primary btn-sm">
+                                <i class="fas fa-hammer"></i> Book Skilled Carpenter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Monsoon Door Sticking Fix:</strong> When wooden doors swell during rain, rub a candle or dry bar of soap along the rubbing latch edge rather than shaving wood away.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Loose Screw Matchstick Trick:</strong> If a hinge screw spins loose in stripped wood, insert two matchsticks dipped in Fevicol wood glue, break flush, and re-drive the screw tightly.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Walnut Scratch Eraser:</strong> For minor scratches on polished wood, rub a natural walnut kernel over the scratch; natural oils instantly blend the blemish.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Lube Hinges &amp; Drawer Slides with WD-40:</strong> Spray ball-bearing drawer channels and door hinges every 6 months.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Use Felt Floor Protectors:</strong> Stick adhesive felt pads under wooden chair and table legs to stop floor scratches.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Buff with Natural Beeswax:</strong> Apply wood polish or beeswax once a year to nourish dry wood grain and seal against humidity.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Choose 304 Stainless Steel Kitchen Hinges:</strong> Ensure modular kitchen hydraulic hinges are rust-proof marine-grade SS304.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Wipe Spills Immediately:</strong> Blot water or coffee spills right away to avoid ring watermarks and veneer blistering.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Place Hot Cookware on Wood:</strong> Hot pans scorch lacquer coats leaving permanent opaque white burn rings.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Place Furniture in Direct Sun:</strong> Harsh sunlight fades stain finishes, cracks natural timber, and dries out joints.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Drag Heavy Sofas &amp; Wardrobes:</strong> Always lift furniture with two people to prevent snapping bottom leg tenons.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Overload Modular Drawers:</strong> Respect maximum load ratings (usually 25 kg) to prevent bending telescopic rails.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Clean with Acidic Sprays:</strong> Avoid harsh glass/bathroom cleaners that strip natural polyurethane wood coatings.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 9. HOME CLEANING -->
+            <article class="tips-service-card" data-category="cleaning" id="cleaning">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-broom"></i> Hygiene &amp; Sanitization</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-broom"></i> Home Deep Cleaning &amp; Sanitization</h2>
+                            <p class="tips-banner-desc">Effortless top-to-bottom cleaning workflows, kitchen degreasing hacks, and allergy-free living.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Home+Cleaning" class="btn btn-primary btn-sm">
+                                <i class="fas fa-sparkles"></i> Book Deep Cleaning
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Top-to-Bottom Rule:</strong> Dust ceiling fans and top curtain pelmets first; falling debris can be vacuumed off floors at the final step without double work.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Microwave Steam Clean Hack:</strong> Microwave a cup of water with lemon slices for 3 minutes; the steam softens baked-on oil and food splatters for an effortless wipe.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Color-Coded Microfiber:</strong> Dedicate Blue for glass/mirrors, Green for kitchen counters, and Red/Yellow for bathroom sanitary fixtures.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Vacuum Mattresses &amp; Sofas Fortnightly:</strong> Pull out allergen dust mites from fabric seams with a high-suction vacuum.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Boil Kitchen Chimney Filters Monthly:</strong> Soak stainless steel mesh filters in boiling water with soda ash to melt stubborn grease.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Run Bathroom Exhaust 20 Mins Post Shower:</strong> Clear damp humidity to stop black mildew growing inside tile grout joints.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Sanitize High-Touch Handles:</strong> Wipe door knobs, fridge handles, light switches, and TV remotes with alcohol disinfectant.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Deep Clean Pre-Festivals:</strong> Schedule a mechanized floor scrubbing and sofa shampooing service twice a year.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Never Mix Bleach and Acids:</strong> Combining chlorine bleach with toilet acid or ammonia releases deadly toxic chloramine gas!</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Use Acid on Italian Marble:</strong> Hydrochloric acid dissolves calcium in marble and granite, etching permanent dull scars.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Scrub Glass with Steel Wool:</strong> Metal wire scrubbers leave irreversible swirls and scratches across glass cooktops.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Store Wet Mops in Buckets:</strong> Soggy mops develop foul mildew odor and spread bacterial colonies across clean floors.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Skip Dusting Before Mopping:</strong> Mopping directly over loose dust creates muddy streaks that soil floor grout.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 10. PAINTING -->
+            <article class="tips-service-card" data-category="painting" id="painting">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-paint-roller"></i> Wall Decor &amp; Protection</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-paint-roller"></i> Painting &amp; Waterproofing Tips</h2>
+                            <p class="tips-banner-desc">Achieve flawless streak-free wall finishes, fix efflorescence blisters, and make paint last 7+ years.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Painting" class="btn btn-primary btn-sm">
+                                <i class="fas fa-paint-roller"></i> Book Painting Pro
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>The 80% Prep Rule:</strong> A long-lasting paint finish is 80% scraping, sanding, and primer bonding, and only 20% roller rolling.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Moisture Meter Check:</strong> Never apply putty or paint on walls with &gt; 12% moisture content; trapped moisture guarantees peeling bubbles.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Save Touch-up Paint in Mason Jars:</strong> Decant 250ml of leftover wall paint into sealed glass jars labeled by room for seamless future scuff touch-ups.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Apply Alkali-Resistant Primer:</strong> Always apply a quality primer coat over new plaster or putty before topcoat emulsion.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Apply Painter's Masking Tape:</strong> Tape along skirting tiles, switchboards, and door trims to ensure razor-sharp cut lines.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Allow 4-6 Hours Between Coats:</strong> Ensure the first coat cures fully before rolling the second coat to prevent roller marks.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Sand with 180-Grit Paper:</strong> Gently smooth dried putty layers to eliminate ridges before roller painting.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Pick Low-VOC Anti-Bacterial Paint:</strong> Choose non-toxic low-odor paint for children's bedrooms and elderly living spaces.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Paint During Heavy Rains:</strong> High humidity prevents acrylic water-based paint from curing and invites fungal mold.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Peel Tape After Full Curing:</strong> Pull masking tape at a 45° angle while the final coat is still slightly tacky to avoid paint tear.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Paint Over White Salt (Efflorescence):</strong> Treat rising dampness and salt deposit chemistry before applying fresh paint.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Dilute Beyond 40% Water:</strong> Over-thinning paint with excess water reduces opacity, scrub resistance, and color depth.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Pour Paint Wash Down Drains:</strong> Residue latex solidifies in domestic traps; let paint dry on rags and dispose in solid waste.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 11. COMPUTER REPAIR -->
+            <article class="tips-service-card" data-category="computer" id="computer">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-laptop-code"></i> Hardware &amp; Security</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-laptop-medical"></i> Computer, Laptop &amp; Data Security Tips</h2>
+                            <p class="tips-banner-desc">Speed up sluggish laptops, prevent motherboard chip overheating, and safeguard valuable photos and files.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Computer+Repair" class="btn btn-primary btn-sm">
+                                <i class="fas fa-laptop-medical"></i> Book PC Technician
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>SSD Transformation:</strong> Upgrading an older laptop from a mechanical hard drive (HDD) to an NVMe/SATA SSD makes it boot in 10 seconds and feel 5x faster for just ₹1,500.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>The 3-2-1 Backup Rule:</strong> Keep 3 copies of your crucial data, on 2 different physical drives, with 1 copy securely uploaded to encrypted cloud storage.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Annual Thermal Paste Renewal:</strong> If the laptop fan roars constantly, renewing dry thermal paste on the CPU drops operating temperatures by up to 15°C.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Elevate Laptop on Flat Surface:</strong> Keep the bottom air intake grille elevated on a ventilated stand to ensure cooling airflow.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Keep Battery Between 20% &amp; 80%:</strong> Avoid continuous 100% plug-in trickle charging to extend lithium-ion battery life.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Install Weekly Security Updates:</strong> Patch Windows / macOS updates regularly to defend against zero-day ransomware.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Clean Keyboard with Compressed Air:</strong> Blow out trapped biscuit crumbs and dust particles before they stick scissor switches.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Use a Grounded Surge Protector:</strong> Shield desktop computers and external drives from lightning spikes and voltage surges.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Never Use Laptops on Beds/Blankets:</strong> Soft fabric suffocates intake vents and draws blanket lint into the cooling fan.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Drink Near Keyboards:</strong> Coffee and water spills cause instantaneous electrolytic motherboard short-circuits.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Download Cracked Software:</strong> Torrents and pirated game cracks are the #1 source of keystroke loggers and trojans.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Force Stuck USB/HDMI Ports:</strong> Forcing inverted USB connectors fractures the internal pins and short-circuits the motherboard.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Lift by Screen Corners:</strong> Gripping a laptop by the LCD panel corner twists the display matrix and snaps hinge anchors.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 12. BEAUTY & SALON -->
+            <article class="tips-service-card" data-category="beauty" id="beauty">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-spa"></i> Skin &amp; Hair Wellness</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-spa"></i> Salon &amp; Beauty Services at Home</h2>
+                            <p class="tips-banner-desc">Hygienic skin care practices, allergy test guidelines, post-wax care, and radiant bridal preparations.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Beauty+Services" class="btn btn-primary btn-sm">
+                                <i class="fas fa-spa"></i> Book Beauty Pro
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>The 24-Hour Patch Test:</strong> Always test hair dyes, facial bleach, or new serums on a 1-inch skin patch behind your ear 24 hours prior to rule out contact dermatitis.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Warm Steam Pre-Facial:</strong> Steaming skin for 4 minutes naturally dilates pore sebum, making blackhead extraction painless without tissue scarring.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Post-Wax Sun &amp; Heat Block:</strong> Keep away from direct sunlight, hot showers, swimming pools, and alcohol perfumes for 24 hours after waxing to avoid bumpy folliculitis.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Insist on Single-Use Disposables:</strong> Confirm the beautician unpacks sealed waxing strips, bedsheets, and wooden spatulas.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Verify Brand &amp; Expiry Seals:</strong> Check manufacturing and expiry dates on facial kits, chemical peels, and hair masks.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Hydrate Before &amp; After Treatments:</strong> Drink plenty of water to maintain skin plumpness, lymphatic drainage, and natural glow.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Disclose Skin Conditions Upfront:</strong> Inform your beautician about active cystic acne, sensitive skin, or pregnancy beforehand.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Cleanse Makeup Before Appointments:</strong> Wash away residual makeup and urban grime so active skincare ingredients penetrate deeply.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Wear Heavy Makeup Post-Facial:</strong> Applying heavy foundation immediately clogs freshly cleansed and open facial pores.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Squeeze Pimples Yourself:</strong> Popping whiteheads leaves permanent dark hyperpigmentation spots and spreads bacteria.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Exfoliate Right After Waxing:</strong> Chemical scrubs or rough loofahs on freshly waxed skin tear delicate epidermis layers.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Reuse Pedicure Nail Files:</strong> Non-sterilized manicure tools can transmit fungal infections and bacterial paronychia.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Wash Colored Hair in Scalding Water:</strong> Hot water opens the hair cuticle, rapidly stripping expensive hair color and gloss.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 13. PEST CONTROL -->
+            <article class="tips-service-card" data-category="pest" id="pest">
+                <div class="tips-card-banner" style="background-image: url('https://images.unsplash.com/photo-1584467735815-f778f274e296?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="tips-banner-overlay"></div>
+                    <div class="tips-banner-content">
+                        <div class="tips-banner-info">
+                            <span class="tips-badge-tag"><i class="fas fa-bug"></i> Safe Pest Management</span>
+                            <h2 class="tips-banner-title"><i class="fas fa-bug"></i> Pest Control &amp; Termite Prevention</h2>
+                            <p class="tips-banner-desc">Keep your home free of cockroaches, bed bugs, termites, and rodents with certified safe treatments.</p>
+                        </div>
+                        <div class="tips-banner-cta">
+                            <a href="providers.html?category=Pest+Control" class="btn btn-primary btn-sm">
+                                <i class="fas fa-shield-virus"></i> Book Pest Control
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tips-card-body">
+                    <div class="tips-pro-box">
+                        <div class="tips-pro-header"><i class="fas fa-lightbulb"></i> Pro Tips &amp; Tricks:</div>
+                        <ul class="tips-pro-list">
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Dot-Sized Gel Placement:</strong> Cockroach bait gel works best when placed in tiny pea-sized dots inside dark cabinet hinge corners, not smeared in open areas.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Cardboard Box Warning:</strong> Never hoard damp delivery cardboard boxes in lofts; the starch glue inside corrugated cardboard is cockroaches' favorite breeding feast.</li>
+                            <li class="tips-pro-item"><i class="fas fa-circle-check"></i> <strong>Boric Acid Behind Fridge:</strong> A light dusting of boric acid powder in the warm zone behind refrigerator compressor eradicates stubborn roach colonies naturally.</li>
+                        </ul>
+                    </div>
+                    <div class="tips-dual-grid">
+                        <div class="tips-col-card tips-col-dos">
+                            <div class="tips-col-title"><i class="fas fa-circle-check"></i> Top 5 Do's</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Empty &amp; Cover Kitchen Utensils:</strong> Protect plates, spices, and open food under plastic sheets before any chemical spraying.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Vacate Premises for 3 Hours:</strong> Keep children, pregnant women, and pets away during and for 3 hours after treatment.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Seal Pipe Wall Holes with Steel Wool:</strong> Pack stainless steel wool around plumbing pipe gaps to stop rodents chewing inside.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Ventilate for 30 Mins Before Re-entry:</strong> Open all windows and run exhaust fans to circulate fresh air before settling in.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Wipe Food Prep Counters Post Treatment:</strong> Wash countertops with warm soapy water before cooking the next family meal.</div></li>
+                            </ul>
+                        </div>
+                        <div class="tips-col-card tips-col-donts">
+                            <div class="tips-col-title"><i class="fas fa-circle-xmark"></i> Top 5 Don'ts</div>
+                            <ul class="tips-point-list">
+                                <li class="tips-point-item"><span class="tips-point-num">1</span><div class="tips-point-text"><strong>Don't Mop Wall Skirting for 48 Hours:</strong> Washing sprayed wall baseboards washes away the active chemical barrier.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">2</span><div class="tips-point-text"><strong>Don't Leave Pet Food Bowls Overnight:</strong> Leftover pet kibble and unsealed water bowls attract nocturnal rats and roaches.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">3</span><div class="tips-point-text"><strong>Don't Store Damp Timber Near Walls:</strong> Stacking wet firewood or untreated scrap wood against walls invites subterranean termites.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">4</span><div class="tips-point-text"><strong>Don't Spray Aerosols on Bedbugs:</strong> Over-the-counter bug sprays irritate bedbugs, scattering them deeper into mattress seams.</div></li>
+                                <li class="tips-point-item"><span class="tips-point-num">5</span><div class="tips-point-text"><strong>Don't Ignore Mud Tubes on Walls:</strong> Thin brown mud tunnels along door frames are proof of an active termite colony destroying wood.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Bottom Print & Safety Checklist Banner -->
+            <div class="tips-checklist-banner">
+                <div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.35rem;"><i class="fas fa-clipboard-check" style="color: #38bdf8;"></i> Home Safety &amp; Maintenance Checklist</h3>
+                    <p style="color: #94a3b8; font-size: 0.95rem; margin: 0;">Keep your residence safe, energy-efficient, and emergency-ready with regular inspections.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="window.print()">
+                        <i class="fas fa-print"></i> Print Full Guide
+                    </button>
+                    <a href="providers.html" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">
+                        <i class="fas fa-search"></i> Find A Pro
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-brand" style="color: white; margin-bottom: 1rem; display: inline-flex;">
+                        <i class="fas fa-handshake-angle brand-icon"></i>
+                        <span class="brand-text">Local<span class="brand-highlight">Service</span>Finder</span>
+                    </a>
+                    <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6;">
+                        Connecting homeowners and vehicle owners with verified, highly-rated local professionals across Southern India.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore Services</h4>
+                    <ul>
+                        <li><a href="providers.html?category=Acting+Driver">Acting Driver</a></li>
+                        <li><a href="providers.html?category=Bike+Mechanic">Bike Mechanic</a></li>
+                        <li><a href="providers.html?category=Car+Mechanic">Car Mechanic</a></li>
+                        <li><a href="providers.html?category=Solar+Panel">Solar Panel Services</a></li>
+                        <li><a href="providers.html?category=AC+Repair">AC Repair &amp; Gas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help &amp; Tips</h4>
+                    <ul>
+                        <li><a href="tips.html">Tips &amp; Tricks</a></li>
+                        <li><a href="tips.html#acting-driver">Acting Driver Rules</a></li>
+                        <li><a href="tips.html#solar-panel">Solar Maintenance</a></li>
+                        <li><a href="tips.html#ac-repair">AC Power Saving</a></li>
+                        <li><a href="register.html">Register Account</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Major Cities</h4>
+                    <ul>
+                        <li><a href="providers.html?city=Chennai">Chennai</a></li>
+                        <li><a href="providers.html?city=Bangalore">Bangalore</a></li>
+                        <li><a href="providers.html?city=Hyderabad">Hyderabad</a></li>
+                        <li><a href="providers.html?city=Coimbatore">Coimbatore</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tips-tab-btn');
+            const cards = document.querySelectorAll('.tips-service-card');
+            const searchInput = document.getElementById('tips-search-input');
+
+            // Category Tab Switcher
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const chosenCategory = tab.getAttribute('data-category');
+
+                    cards.forEach(card => {
+                        if (chosenCategory === 'all' || card.getAttribute('data-category') === chosenCategory) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // If a specific card is selected, scroll smoothly into view
+                    if (chosenCategory !== 'all') {
+                        const targetCard = document.getElementById(chosenCategory);
+                        if (targetCard) {
+                            const offset = targetCard.getBoundingClientRect().top + window.scrollY - 130;
+                            window.scrollTo({ top: offset, behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            // Live Search Filter
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value.toLowerCase().trim();
+                    if (!query) {
+                        const activeTab = document.querySelector('.tips-tab-btn.active');
+                        const chosenCategory = activeTab ? activeTab.getAttribute('data-category') : 'all';
+                        cards.forEach(card => {
+                            if (chosenCategory === 'all' || card.getAttribute('data-category') === chosenCategory) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                        return;
+                    }
+
+                    cards.forEach(card => {
+                        const cardText = card.textContent.toLowerCase();
+                        if (cardText.includes(query)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            // Handle URL Hash (e.g. tips.html#solar-panel)
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const matchingTab = document.querySelector(`.tips-tab-btn[data-category="${targetId}"]`);
+                if (matchingTab) {
+                    matchingTab.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

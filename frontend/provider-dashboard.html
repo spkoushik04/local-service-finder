@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Dashboard - Local Service Finder</title>
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function() {
+            try {
+                var user = localStorage.getItem('lsf_user');
+                if (!user) window.location.replace('login.html');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon" style="background: linear-gradient(135deg, var(--accent), #059669);"><i class="fas fa-tools"></i></div>
+                <div>Provider<span>Center</span></div>
+            </a>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="badge badge-success"><i class="fas fa-check-circle"></i> Verified Partner</span>
+                <button onclick="logout()" class="btn btn-outline btn-sm">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container with Sidebar -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user-card">
+                <div class="sidebar-avatar" style="background: var(--accent);">P</div>
+                <div style="overflow: hidden;">
+                    <div class="sidebar-user-name provider-business-placeholder">Service Partner</div>
+                    <div class="sidebar-user-role provider-email-placeholder">provider@example.com</div>
+                </div>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="provider-dashboard.html" class="sidebar-link active">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#requests-section" class="sidebar-link">
+                        <i class="fas fa-bell"></i> Service Requests
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" id="open-add-service-btn" class="sidebar-link">
+                        <i class="fas fa-plus-circle"></i> Add Service Item
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="showToast('Your availability is set to Available Today', 'success')" class="sidebar-link">
+                        <i class="fas fa-business-time"></i> Availability
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="showToast('Average customer satisfaction rating is synced with reviews.', 'info')" class="sidebar-link">
+                        <i class="fas fa-star"></i> Reviews
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="showToast('Provider profile is verified by admin.', 'info')" class="sidebar-link">
+                        <i class="fas fa-id-card"></i> Profile
+                    </a>
+                </li>
+                <li style="margin-top: auto;">
+                    <a href="javascript:void(0)" onclick="logout()" class="sidebar-link logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div>
+                    <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Provider Dashboard</h1>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Manage incoming customer requests, schedule appointments, and update job status.</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="document.getElementById('open-add-service-btn').click()">
+                        <i class="fas fa-plus"></i> Add Service Item
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-val" id="stat-total-requests">0</div>
+                        <div class="stat-title">Total Requests</div>
+                    </div>
+                    <div class="stat-icon stat-blue"><i class="fas fa-inbox"></i></div>
+                </div>
+
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-val" id="stat-pending-requests">0</div>
+                        <div class="stat-title">Pending Action</div>
+                    </div>
+                    <div class="stat-icon stat-yellow"><i class="fas fa-hourglass-half"></i></div>
+                </div>
+
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-val" id="stat-completed-jobs">0</div>
+                        <div class="stat-title">Completed Jobs</div>
+                    </div>
+                    <div class="stat-icon stat-green"><i class="fas fa-check-double"></i></div>
+                </div>
+
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-val" id="stat-avg-rating">0.0</div>
+                        <div class="stat-title">Average Rating</div>
+                    </div>
+                    <div class="stat-icon" style="background: var(--warning-light); color: var(--warning);"><i class="fas fa-star"></i></div>
+                </div>
+            </div>
+
+            <!-- Service Requests Table -->
+            <div class="data-card" id="requests-section">
+                <div class="data-card-header">
+                    <h2 style="font-size: 1.25rem;">Customer Service Requests</h2>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">Accept or reject requests, then mark completed after visit</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Date & Time</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="provider-requests-tbody">
+                            <tr>
+                                <td colspan="7" style="text-align: center; padding: 2rem;">
+                                    <i class="fas fa-spinner fa-spin"></i> Loading incoming requests...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/provider-dashboard.js"></script>
+</body>
+</html>

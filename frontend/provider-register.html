@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Registration - Local Service Finder</title>
+    <meta name="description" content="Register your local business or freelance trade on Local Service Finder and grow your client base.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Provider Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Provider Registration Form Page -->
+    <main class="form-page-wrapper">
+        <div class="auth-card wide-card">
+            <div class="auth-header">
+                <div style="width: 54px; height: 54px; border-radius: var(--radius-md); background: var(--accent-light); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1rem;">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h2>Service Provider Registration</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    Apply as a verified partner. Accounts undergo admin verification (status: <strong>PENDING</strong>) prior to activation.
+                </p>
+            </div>
+
+            <form id="provider-register-form">
+                <!-- Personal Info -->
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Owner / Contact Person Name (Max 18)</label>
+                        <input type="text" id="name" class="form-control" placeholder="Suresh Kumar" maxlength="18" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="businessName">Business / Agency Name</label>
+                        <input type="text" id="businessName" class="form-control" placeholder="Suresh Super Electricals" required>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="email">Business Email Address (Max 30)</label>
+                        <input type="email" id="email" class="form-control" placeholder="suresh.electrical@example.com" maxlength="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone / WhatsApp Number (Max 15)</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="9841122334" maxlength="15" required>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="password">Account Password (Max 20 chars)</label>
+                        <input type="password" id="password" class="form-control" placeholder="••••••••" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="categoryId">Service Category</label>
+                        <select id="categoryId" class="form-control" required>
+                            <option value="">-- Loading Categories... --</option>
+                            <option value="1">Plumbing</option>
+                            <option value="2">Electrical</option>
+                            <option value="3">Carpentry</option>
+                            <option value="4">AC Repair</option>
+                            <option value="5">Home Cleaning</option>
+                            <option value="6">Painting</option>
+                            <option value="7">Computer Repair</option>
+                            <option value="8">Vehicle Repair</option>
+                            <option value="9">Beauty Services</option>
+                            <option value="10">Pest Control</option>
+                            <option value="11">Acting Driver</option>
+                            <option value="12">Bike Mechanic</option>
+                            <option value="13">Car Mechanic</option>
+                            <option value="14">Solar Panel</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="experience">Years of Experience</label>
+                        <input type="number" id="experience" class="form-control" placeholder="5" min="1" max="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="startingPrice">Starting Price (₹ INR)</label>
+                        <input type="number" id="startingPrice" class="form-control" placeholder="299" min="50" required>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="city">Base Operating City</label>
+                        <select id="city" class="form-control" required>
+                            <option value="">-- Select Operating City --</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Madurai">Madurai</option>
+                            <option value="Pondicherry">Pondicherry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="workingHours">Working Hours</label>
+                        <input type="text" id="workingHours" class="form-control" placeholder="8:00 AM - 8:00 PM" value="8:00 AM - 8:00 PM">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="address">Workshop / Business Address</label>
+                    <textarea id="address" class="form-control" placeholder="Shop/Office No, Street, Area, Pin code..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="description">About Your Services & Expertise</label>
+                    <textarea id="description" class="form-control" placeholder="Tell customers about your certifications, types of repairs handled, warranties offered..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="prov-register-submit-btn" style="background: var(--accent); border-color: var(--accent); margin-top: 1.5rem;">
+                    <i class="fas fa-id-badge"></i> Submit Provider Application
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 1.75rem; font-size: 0.9rem; color: var(--text-muted);">
+                Already an approved partner? <a href="login.html" style="font-weight: 600;">Login here</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Registration - Local Service Finder</title>
+    <meta name="description" content="Create a customer account on Local Service Finder to book trusted technicians near you.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Already have account? Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form Page -->
+    <main class="form-page-wrapper">
+        <div class="auth-card wide-card">
+            <div class="auth-header">
+                <div style="width: 54px; height: 54px; border-radius: var(--radius-md); background: var(--primary-light); color: var(--primary); display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1rem;">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h2>Customer Registration</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Join Local Service Finder to book trusted local professionals in minutes.</p>
+            </div>
+
+            <form id="customer-register-form">
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name (Max 18)</label>
+                        <input type="text" id="name" class="form-control" placeholder="Rahul Sharma" maxlength="18" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address (Max 30)</label>
+                        <input type="email" id="email" class="form-control" placeholder="rahul@example.com" maxlength="30" required>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number (Max 15)</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="9840123456" maxlength="15" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="city">City (Max 15)</label>
+                        <select id="city" class="form-control" required>
+                            <option value="">-- Select Your City --</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Madurai">Madurai</option>
+                            <option value="Pondicherry">Pondicherry</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password (Max 20 chars)</label>
+                        <input type="password" id="password" class="form-control" placeholder="••••••••" maxlength="20" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="••••••••" maxlength="20" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="address">Full Residential Address</label>
+                    <textarea id="address" class="form-control" placeholder="Flat No, Apartment, Street, Landmark, Area..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="register-submit-btn" style="margin-top: 1.5rem;">
+                    <i class="fas fa-check-circle"></i> Create Customer Account
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 1.75rem; font-size: 0.9rem; color: var(--text-muted);">
+                Already have an account? <a href="login.html" style="font-weight: 600;">Sign in here</a>
+                <div style="margin-top: 0.5rem;">
+                    Want to offer your services? <a href="provider-register.html" style="font-weight: 600; color: var(--accent);">Sign up as a Service Provider</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

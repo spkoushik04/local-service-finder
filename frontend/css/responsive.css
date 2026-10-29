@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Local Service Finder - Responsive Stylesheet (CSS3)
+   Media queries for Laptop, Tablet, Mobile (Hamburger, Stacked Grids, Drawer)
+   ========================================================================== */
+
+/* Tablet & Smaller Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .providers-layout {
+        grid-template-columns: 240px 1fr;
+        gap: 1.5rem;
+    }
+
+    .details-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .details-sidebar {
+        position: static;
+    }
+
+    .dashboard-wrapper {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Tablets (<= 768px) */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg);
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu .nav-item {
+        width: 100%;
+    }
+
+    .nav-menu .nav-link {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-auth {
+        display: none; /* Handled inside mobile menu or navbar */
+    }
+
+    .hero-section {
+        padding: 3.5rem 0 4.5rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-search-box {
+        grid-template-columns: 1fr;
+    }
+
+    .providers-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-sidebar {
+        position: static;
+        margin-bottom: 1.5rem;
+    }
+
+    .details-hero-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-card {
+        padding: 1.75rem;
+    }
+
+    /* Dashboard Mobile Layout */
+    .dashboard-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        display: none; /* Can be toggled with mobile dashboard button */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .dashboard-sidebar.mobile-open {
+        display: flex;
+    }
+
+    .dashboard-main {
+        padding: 1.5rem 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Small Phones (<= 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prov-card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .prov-card-footer .btn {
+        width: 100%;
+    }
+
+    #toast-container {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+    }
+
+    .toast {
+        min-width: 100%;
+    }
+
+    .role-selector-grid {
+        gap: 0.45rem;
+    }
+
+    .role-card {
+        padding: 0.65rem 0.35rem;
+    }
+
+    .role-card .role-icon-box {
+        width: 36px;
+        height: 36px;
+        font-size: 1.05rem;
+    }
+
+    .role-card .role-name {
+        font-size: 0.8rem;
+    }
+
+    .role-card .role-desc {
+        display: none;
+    }
+}
+

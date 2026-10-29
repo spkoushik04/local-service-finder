@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Categories - Local Service Finder</title>
+    <meta name="description" content="Explore all home and repair service categories available in your neighborhood.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function() {
+            try {
+                var user = localStorage.getItem('lsf_user');
+                if (!user) window.location.replace('login.html');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link active">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+                <li class="nav-item"><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 3.5rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="color: white; font-size: 2.5rem; margin-bottom: 0.5rem;">All Service Categories</h1>
+            <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                Select a category below to browse verified, experienced professionals available in your city.
+            </p>
+        </div>
+    </header>
+
+    <!-- Services Grid Container -->
+    <main class="section">
+        <div class="container">
+            <div class="category-grid" id="services-category-grid">
+                <!-- Dynamically populated by js/services.js -->
+                <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                    <i class="fas fa-spinner fa-spin fa-2x" style="color: var(--primary);"></i>
+                    <p style="margin-top: 0.75rem; color: var(--text-muted);">Fetching service categories from database...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+</body>
+</html>

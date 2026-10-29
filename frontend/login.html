@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Local Service Finder</title>
+    <meta name="description" content="Login to your Local Service Finder account as customer, service provider, or administrator.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function() {
+            try {
+                var urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('logout') === 'true' || urlParams.get('force') === 'true') {
+                    localStorage.removeItem('lsf_user');
+                    return;
+                }
+                var stored = localStorage.getItem('lsf_user');
+                if (stored) {
+                    var user = JSON.parse(stored);
+                    if (user && user.role) {
+                        if (user.role === 'ADMIN') window.location.replace('admin-dashboard.html');
+                        else if (user.role === 'PROVIDER') window.location.replace('provider-dashboard.html');
+                        else window.location.replace('index.html');
+                    }
+                }
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+                <li class="nav-item"><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="register.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Form Page with Stunning Wallpaper Background -->
+    <main class="form-page-wrapper login-bg-page">
+        <div class="auth-card login-glass-card">
+            <div class="auth-header">
+                <div class="auth-icon-circle">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
+                <h2>Welcome Back</h2>
+                <p style="color: var(--text-muted); font-size: 0.925rem;">Login to access your bookings and dashboard.</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope input-prefix-icon"></i>
+                        <input type="email" id="email" class="form-control input-interactive" placeholder="name@example.com" required autocomplete="username">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                        <label class="form-label" for="password" style="margin-bottom: 0;">Password</label>
+                    </div>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock input-prefix-icon"></i>
+                        <input type="password" id="password" class="form-control input-interactive" placeholder="••••••••" required autocomplete="current-password">
+                        <button type="button" class="password-toggle-btn" id="password-toggle-btn" aria-label="Toggle password visibility" title="Show/Hide Password">
+                            <i class="fas fa-eye" id="password-eye-icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="login-submit-btn" style="margin-top: 1.5rem; height: 48px; font-weight: 600; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);">
+                    <i class="fas fa-lock-open"></i> Login
+                </button>
+            </form>
+
+            <!-- Sign Up Links -->
+            <div style="text-align: center; margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+                Don't have an account? <a href="register.html" style="font-weight: 600;">Register as Customer</a>
+                <div style="margin-top: 0.6rem;">
+                    Are you a service pro? <a href="provider-register.html" style="font-weight: 600; color: var(--accent);">Register as Service Provider</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('registered') === 'true') {
+                const regEmail = urlParams.get('email');
+                if (regEmail) {
+                    document.getElementById('email').value = regEmail;
+                }
+                setTimeout(() => {
+                    showToast('Registration completed successfully! Please enter your password to login.', 'success');
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

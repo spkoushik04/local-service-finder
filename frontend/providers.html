@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Service Providers - Local Service Finder</title>
+    <meta name="description" content="Search and filter verified local service providers by category, location, rating, and starting price.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function() {
+            try {
+                var user = localStorage.getItem('lsf_user');
+                if (!user) window.location.replace('login.html');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link active">Find Providers</a></li>
+                <li class="nav-item"><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Breadcrumb -->
+    <div style="background: var(--bg-alt); padding: 1.25rem 0; border-bottom: 1px solid var(--border-color);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1 style="font-size: 1.6rem; margin-bottom: 0.2rem;">Find Local Service Providers</h1>
+                <p style="color: var(--text-muted); font-size: 0.875rem;" id="results-count">Showing verified providers</p>
+            </div>
+            <a href="booking.html" class="btn btn-primary btn-sm"><i class="fas fa-calendar-plus"></i> Quick Booking</a>
+        </div>
+    </div>
+
+    <!-- Main Content: Filters + Results -->
+    <main class="section" style="padding: 2.5rem 0 4rem;">
+        <div class="container">
+            <div class="providers-layout">
+
+                <!-- Left Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <div class="filter-title">
+                        <span><i class="fas fa-sliders-h"></i> Filters</span>
+                        <button onclick="resetFilters()" style="background: none; border: none; color: var(--primary); font-size: 0.8rem; font-weight: 600; cursor: pointer;">Reset All</button>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" for="filter-category">Service Category</label>
+                        <select id="filter-category" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="Acting Driver">Acting Driver</option>
+                            <option value="Bike Mechanic">Bike Mechanic</option>
+                            <option value="Car Mechanic">Car Mechanic</option>
+                            <option value="Solar Panel">Solar Panel</option>
+                            <option value="AC Repair">AC Repair</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="Plumbing">Plumbing</option>
+                            <option value="Carpentry">Carpentry</option>
+                            <option value="Home Cleaning">Home Cleaning</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Computer Repair">Computer Repair</option>
+                            <option value="Vehicle Repair">Vehicle Repair</option>
+                            <option value="Beauty Services">Beauty Services</option>
+                            <option value="Pest Control">Pest Control</option>
+                        </select>
+                    </div>
+
+                    <!-- City Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" for="filter-city">City / Location</label>
+                        <select id="filter-city" class="filter-select">
+                            <option value="">All Cities</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Madurai">Madurai</option>
+                            <option value="Pondicherry">Pondicherry</option>
+                        </select>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-group">
+                        <label class="filter-label" for="filter-rating">Minimum Rating</label>
+                        <select id="filter-rating" class="filter-select">
+                            <option value="">Any Rating</option>
+                            <option value="4.5">★ 4.5 & Above</option>
+                            <option value="4.0">★ 4.0 & Above</option>
+                            <option value="3.5">★ 3.5 & Above</option>
+                        </select>
+                    </div>
+
+                    <!-- Max Price Slider -->
+                    <div class="filter-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                            <label class="filter-label" style="margin-bottom: 0;">Max Starting Price</label>
+                            <span id="price-val-display" style="font-weight: 700; color: var(--secondary); font-size: 0.85rem;">₹5000</span>
+                        </div>
+                        <input type="range" id="filter-max-price" min="199" max="5000" step="100" value="5000" style="width: 100%; cursor: pointer;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-light); margin-top: 0.2rem;">
+                            <span>₹199</span>
+                            <span>₹5000</span>
+                        </div>
+                    </div>
+
+                    <!-- Sort By -->
+                    <div class="filter-group">
+                        <label class="filter-label" for="filter-sort">Sort By</label>
+                        <select id="filter-sort" class="filter-select">
+                            <option value="rating_desc">Highest Rated</option>
+                            <option value="price_asc">Price: Low to High</option>
+                            <option value="price_desc">Price: High to Low</option>
+                            <option value="experience_desc">Most Experienced</option>
+                        </select>
+                    </div>
+                </aside>
+
+                <!-- Right Side: Provider Cards Grid -->
+                <section>
+                    <div class="providers-grid" id="providers-grid-container">
+                        <!-- Populated by js/providers.js -->
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                            <i class="fas fa-spinner fa-spin fa-2x" style="color: var(--primary);"></i>
+                            <p style="margin-top: 0.75rem; color: var(--text-muted);">Loading verified providers...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/providers.js"></script>
+</body>
+</html>

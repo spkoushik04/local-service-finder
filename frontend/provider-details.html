@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Details - Local Service Finder</title>
+    <meta name="description" content="View complete service provider details, customer reviews, pricing, and book services online.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function() {
+            try {
+                var user = localStorage.getItem('lsf_user');
+                if (!user) window.location.replace('login.html');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+                <li class="nav-item"><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="provider-details-container">
+        <!-- Hero Header -->
+        <div class="details-hero">
+            <div class="container details-hero-layout">
+                <div class="details-avatar">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div style="flex-grow: 1;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.35rem;">
+                        <h1 style="color: white; font-size: 2.2rem;" id="details-business-name">Loading Provider...</h1>
+                        <span class="badge badge-primary"><i class="fas fa-shield-alt"></i> Verified Pro</span>
+                    </div>
+                    <p style="color: #93c5fd; font-size: 1rem; margin-bottom: 0.75rem;" id="details-person-name">Certified Service Partner</p>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.95rem; color: #cbd5e1;">
+                        <span id="details-category"><i class="fas fa-tag"></i> Service</span>
+                        <span id="details-city"><i class="fas fa-map-marker-alt"></i> City</span>
+                        <span id="details-rating"><i class="fas fa-star" style="color: #f59e0b;"></i> 0.0 (0 reviews)</span>
+                        <span id="details-experience"><i class="fas fa-briefcase"></i> Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Details Content -->
+        <main class="container">
+            <div class="details-content-grid">
+                <!-- Left Main Column -->
+                <div class="details-main">
+                    <!-- About Section -->
+                    <section style="margin-bottom: 2.5rem;">
+                        <h2 style="font-size: 1.4rem; margin-bottom: 0.75rem;">About this Provider</h2>
+                        <p style="color: var(--text-main); font-size: 1rem; line-height: 1.7;" id="details-about">
+                            Loading details...
+                        </p>
+                    </section>
+
+                    <!-- Services Offered -->
+                    <section style="margin-bottom: 2.5rem;">
+                        <h2 style="font-size: 1.4rem; margin-bottom: 1rem;">Services & Pricing</h2>
+                        <div id="provider-services-list">
+                            <!-- Populated by js/providers.js -->
+                        </div>
+                    </section>
+
+                    <!-- Customer Reviews -->
+                    <section>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h2 style="font-size: 1.4rem;">Customer Reviews & Ratings</h2>
+                            <a href="#details-book-btn" class="btn btn-outline-primary btn-sm">Book to Leave Review</a>
+                        </div>
+                        <div id="provider-reviews-list">
+                            <!-- Populated by js/providers.js -->
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Sticky Sidebar CTA -->
+                <aside class="details-sidebar">
+                    <div style="margin-bottom: 1.5rem;">
+                        <span style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Starting Rate</span>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--secondary); font-family: 'Outfit', sans-serif;" id="details-price">
+                            ₹0
+                        </div>
+                        <span style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">Standard doorstep inspection included</span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.75rem;">
+                        <a href="booking.html" class="btn btn-primary btn-block btn-lg" id="details-book-btn">
+                            <i class="fas fa-calendar-check"></i> Book Service Now
+                        </a>
+                        <button class="btn btn-outline btn-block" id="details-contact-btn">
+                            <i class="fas fa-phone-alt"></i> Contact Provider
+                        </button>
+                    </div>
+
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 1.25rem; font-size: 0.9rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <div><i class="fas fa-clock" style="color: var(--primary); width: 22px;"></i> <strong>Hours:</strong> <span id="details-hours">9:00 AM - 7:00 PM</span></div>
+                        <div><i class="fas fa-calendar-day" style="color: var(--accent); width: 22px;"></i> <strong>Status:</strong> <span id="details-availability">Available Today</span></div>
+                        <div><i class="fas fa-map-marked-alt" style="color: var(--warning); width: 22px;"></i> <strong>Base:</strong> <span id="details-address">Chennai</span></div>
+                        <div><i class="fas fa-shield-alt" style="color: var(--primary); width: 22px;"></i> <strong>Safety:</strong> COVID-19 sanitized & police-verified</div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/providers.js"></script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Service Finder - Find Trusted Local Services Near You</title>
+    <meta name="description" content="Connect with verified plumbers, electricians, carpenters, AC technicians and cleaners in your neighborhood.">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Immediate Authentication Guard: Redirect to login if not logged in -->
+    <script>
+        (function() {
+            try {
+                var user = localStorage.getItem('lsf_user');
+                if (!user) {
+                    window.location.replace('login.html');
+                }
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="main-navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" id="brand-home-link">
+                <div class="logo-icon"><i class="fas fa-handshake"></i></div>
+                <div>Local<span>Finder</span></div>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle-btn" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu-list">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="providers.html" class="nav-link">Find Providers</a></li>
+                <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="tips.html" class="nav-link"><i class="fas fa-lightbulb" style="color: #eab308; margin-right: 4px;"></i> Tips</a></li>
+            </ul>
+
+            <div class="nav-auth" id="nav-auth-container">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-pill">
+                    <i class="fas fa-shield-alt"></i> 100% Background-Checked Professionals
+                </div>
+                <h1 class="hero-title">Find Trusted <span>Local Services</span> Near You</h1>
+                <p class="hero-subtitle">
+                    Find reliable local professionals for your everyday service needs. Transparent pricing, verified reviews, and guaranteed satisfaction.
+                </p>
+
+                <!-- Search Box -->
+                <form action="providers.html" method="GET" class="hero-search-box" id="hero-search-form">
+                    <div class="search-field">
+                        <i class="fas fa-tools"></i>
+                        <input type="text" name="category" placeholder="Search for a service (e.g. Acting Driver, Bike Mechanic, Car Mechanic, Solar Panel, AC Repair)" id="hero-category-input">
+                    </div>
+                    <div class="search-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select name="city" id="hero-city-select">
+                            <option value="">Enter your location (All Cities)</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Madurai">Madurai</option>
+                            <option value="Pondicherry">Pondicherry</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" id="hero-submit-btn">
+                        <i class="fas fa-search"></i> Find Services
+                    </button>
+                </form>
+
+                <!-- Popular Services Chips -->
+                <div class="popular-chips">
+                    <span>Popular Services:</span>
+                    <a href="providers.html?category=Acting+Driver"><i class="fas fa-id-card"></i> Acting Driver</a>
+                    <a href="providers.html?category=Bike+Mechanic"><i class="fas fa-motorcycle"></i> Bike Mechanic</a>
+                    <a href="providers.html?category=Car+Mechanic"><i class="fas fa-car"></i> Car Mechanic</a>
+                    <a href="providers.html?category=Solar+Panel"><i class="fas fa-solar-panel"></i> Solar Panel</a>
+                    <a href="providers.html?category=AC+Repair"><i class="fas fa-snowflake"></i> AC Repair</a>
+                    <a href="providers.html?category=Electrical"><i class="fas fa-bolt"></i> Electrician</a>
+                    <a href="providers.html?category=Plumbing"><i class="fas fa-faucet-drip"></i> Plumber</a>
+                </div>
+
+                <!-- Hero Graphic Showcase -->
+                <div style="margin-top: 2.75rem; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.15);">
+                    <img src="images/hero-banner.jpg" alt="Trusted Local Home Service Providers at Work" style="width: 100%; max-height: 440px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Popular Categories Preview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Top Categories</span>
+                <h2 class="section-title">Explore Everyday Services</h2>
+                <p class="section-desc">From acting drivers & vehicle mechanics to solar installations and home repairs, our experts are just a click away.</p>
+            </div>
+
+            <div class="category-grid" id="homepage-category-grid">
+                <!-- Acting Driver -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap" style="background: rgba(37, 99, 235, 0.1); color: var(--primary);"><i class="fas fa-id-card"></i></div>
+                    <h3 class="cat-name">Acting Driver</h3>
+                    <p class="cat-desc">Professional call & acting drivers for local city trips, hourly hire, outstation journeys, and luxury cars.</p>
+                    <a href="providers.html?category=Acting+Driver" class="btn btn-outline-primary btn-sm btn-block">Find Drivers</a>
+                </div>
+                <!-- Bike Mechanic -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap" style="background: rgba(16, 185, 129, 0.1); color: var(--success);"><i class="fas fa-motorcycle"></i></div>
+                    <h3 class="cat-name">Bike Mechanic</h3>
+                    <p class="cat-desc">Doorstep two-wheeler servicing, oil change, engine tuning, tyre puncture, and roadside breakdown assistance.</p>
+                    <a href="providers.html?category=Bike+Mechanic" class="btn btn-outline-primary btn-sm btn-block">Find Bike Mechanics</a>
+                </div>
+                <!-- Car Mechanic -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);"><i class="fas fa-car"></i></div>
+                    <h3 class="cat-name">Car Mechanic</h3>
+                    <p class="cat-desc">Multi-brand car periodic maintenance, engine OBD diagnostics, brake overhaul, clutch repair, and towing.</p>
+                    <a href="providers.html?category=Car+Mechanic" class="btn btn-outline-primary btn-sm btn-block">Find Car Mechanics</a>
+                </div>
+                <!-- Solar Panel -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);"><i class="fas fa-solar-panel"></i></div>
+                    <h3 class="cat-name">Solar Panel</h3>
+                    <p class="cat-desc">Rooftop solar installation, inverter & battery setup, deep solar panel cleaning, and efficiency maintenance.</p>
+                    <a href="providers.html?category=Solar+Panel" class="btn btn-outline-primary btn-sm btn-block">Find Solar Techs</a>
+                </div>
+                <!-- AC Repair -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap"><i class="fas fa-snowflake"></i></div>
+                    <h3 class="cat-name">AC Repair</h3>
+                    <p class="cat-desc">Air conditioner servicing, gas refilling, cooling issues, filter cleaning, and new AC installation.</p>
+                    <a href="providers.html?category=AC+Repair" class="btn btn-outline-primary btn-sm btn-block">Find AC Techs</a>
+                </div>
+                <!-- Electrical -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap"><i class="fas fa-bolt"></i></div>
+                    <h3 class="cat-name">Electrical</h3>
+                    <p class="cat-desc">Wiring repairs, switchboard replacements, MCB tripping, fan fittings, and home electrical setup.</p>
+                    <a href="providers.html?category=Electrical" class="btn btn-outline-primary btn-sm btn-block">Find Electricians</a>
+                </div>
+                <!-- Plumbing -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap"><i class="fas fa-faucet-drip"></i></div>
+                    <h3 class="cat-name">Plumbing</h3>
+                    <p class="cat-desc">Pipe leaks, taps, water heater installation and full bathroom drainage solutions.</p>
+                    <a href="providers.html?category=Plumbing" class="btn btn-outline-primary btn-sm btn-block">Find Plumbers</a>
+                </div>
+                <!-- Home Cleaning -->
+                <div class="category-card">
+                    <div class="cat-icon-wrap"><i class="fas fa-broom"></i></div>
+                    <h3 class="cat-name">Home Cleaning</h3>
+                    <p class="cat-desc">Deep house cleaning, kitchen scrubbing, bathroom sanitation, and post-construction cleanups.</p>
+                    <a href="providers.html?category=Home+Cleaning" class="btn btn-outline-primary btn-sm btn-block">Find Cleaners</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="services.html" class="btn btn-outline-primary btn-lg">View All Categories <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-alt" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Simple & Fast</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-desc">Booking a trusted technician is hassle-free with our 3-step process.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-color);">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 1.25rem;">1</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Choose a Service</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Browse through categorized services and filter based on your city, preferred price, and ratings.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-color);">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 1.25rem;">2</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Pick a Verified Provider</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Inspect real customer reviews, working experience, and schedule at your convenient time slot.</p>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border-color);">
+                    <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--warning-light); color: var(--warning); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 1.25rem;">3</div>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Relax & Rate</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">The technician arrives on time, completes the task to perfection, and you pay only after completion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Provider CTA Banner -->
+    <section class="section" style="background: linear-gradient(135deg, #1e3a8a, #0f172a); color: white;" id="about">
+        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+            <div style="max-width: 600px;">
+                <span style="color: #93c5fd; font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">Are you a Service Professional?</span>
+                <h2 style="color: white; font-size: 2.2rem; margin: 0.5rem 0 1rem;">Grow Your Local Business With Us</h2>
+                <p style="color: #cbd5e1; font-size: 1.05rem;">Join hundreds of verified electricians, plumbers, and technicians getting daily bookings from customers in your city.</p>
+            </div>
+            <div>
+                <a href="provider-register.html" class="btn btn-primary btn-lg" style="background: #10b981; border: none;">
+                    <i class="fas fa-briefcase"></i> Register as a Provider
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Local Service Finder</h3>
+                    <p>India's premier hyperlocal service platform connecting verified local experts with homeowners and businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Links</h4>
+                    <ul>
+                        <li><a href="services.html">All Services</a></li>
+                        <li><a href="providers.html">Find Providers</a></li>
+                        <li><a href="booking.html">Book a Service</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Service Partners</h4>
+                    <ul>
+                        <li><a href="provider-register.html">Become a Partner</a></li>
+                        <li><a href="login.html">Provider Login</a></li>
+                        <li><a href="admin-dashboard.html">Admin Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Major Cities</h4>
+                    <ul>
+                        <li><a href="providers.html?city=Chennai">Chennai</a></li>
+                        <li><a href="providers.html?city=Bangalore">Bangalore</a></li>
+                        <li><a href="providers.html?city=Hyderabad">Hyderabad</a></li>
+                        <li><a href="providers.html?city=Coimbatore">Coimbatore</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Local Service Finder. Developed By KOUSHIK S P &amp; BARATH S
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Local Service Finder</title>
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function() {
+            try {
+                var user = localStorage.getItem('lsf_user');
+                if (!user) window.location.replace('login.html');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon" style="background: linear-gradient(135deg, #ef4444, #b91c1c);"><i class="fas fa-user-shield"></i></div>
+                <div>Admin<span>Console</span></div>
+            </a>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="badge badge-danger"><i class="fas fa-lock"></i> Super Admin</span>
+                <button onclick="logout()" class="btn btn-outline btn-sm">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container with Sidebar -->
+    <div class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-user-card">
+                <div class="sidebar-avatar" style="background: #dc2626;">A</div>
+                <div style="overflow: hidden;">
+                    <div class="sidebar-user-name">System Admin</div>
+                    <div class="sidebar-user-role">admin@localservicefinder.com</div>
+                </div>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link admin-nav-item active" data-target="admin-section-overview">
+                        <i class="fas fa-tachometer-alt"></i> Overview
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link admin-nav-item" data-target="admin-section-providers">
+                        <i class="fas fa-user-check"></i> Providers & Approvals
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link admin-nav-item" data-target="admin-section-users">
+                        <i class="fas fa-users"></i> Users Management
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="sidebar-link admin-nav-item" data-target="admin-section-categories">
+                        <i class="fas fa-tags"></i> Service Categories
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="showToast('Platform reports generated successfully.', 'info')" class="sidebar-link">
+                        <i class="fas fa-chart-pie"></i> Reports
+                    </a>
+                </li>
+                <li style="margin-top: auto;">
+                    <a href="javascript:void(0)" onclick="logout()" class="sidebar-link logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard View -->
+        <main class="dashboard-main">
+            <!-- SECTION 1: Overview & Metrics -->
+            <div id="admin-section-overview" class="admin-tab-section">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Platform Administration</h1>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Real-time metrics, provider approval queues, and user administration.</p>
+                    </div>
+                    <button onclick="openAddCategoryModal()" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Service Category
+                    </button>
+                </div>
+
+                <!-- 6 Metrics Cards -->
+                <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-val" id="admin-stat-users">0</div>
+                            <div class="stat-title">Total Users</div>
+                        </div>
+                        <div class="stat-icon stat-blue"><i class="fas fa-users"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-val" id="admin-stat-providers">0</div>
+                            <div class="stat-title">Total Providers</div>
+                        </div>
+                        <div class="stat-icon stat-green"><i class="fas fa-id-badge"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-val" id="admin-stat-services">0</div>
+                            <div class="stat-title">Service Categories</div>
+                        </div>
+                        <div class="stat-icon stat-yellow"><i class="fas fa-th"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-val" id="admin-stat-bookings">0</div>
+                            <div class="stat-title">Total Bookings</div>
+                        </div>
+                        <div class="stat-icon stat-blue"><i class="fas fa-calendar-alt"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-val" id="admin-stat-pending-approvals" style="color: var(--danger);">0</div>
+                            <div class="stat-title">Pending Approvals</div>
+                        </div>
+                        <div class="stat-icon stat-red"><i class="fas fa-user-clock"></i></div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-val" id="admin-stat-completed-bookings" style="color: var(--accent);">0</div>
+                            <div class="stat-title">Completed Jobs</div>
+                        </div>
+                        <div class="stat-icon stat-green"><i class="fas fa-check-double"></i></div>
+                    </div>
+                </div>
+
+                <!-- Provider Approvals Quick View -->
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <h2 style="font-size: 1.25rem;">Provider Verification Queue</h2>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Approve or reject service partner applications</span>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Business / Owner</th>
+                                    <th>Category</th>
+                                    <th>City</th>
+                                    <th>Experience</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-providers-tbody">
+                                <tr>
+                                    <td colspan="7" style="text-align: center; padding: 2rem;">Loading providers...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Providers & Approvals Full Table -->
+            <div id="admin-section-providers" class="admin-tab-section" style="display: none;">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Manage Service Providers</h1>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Review qualifications, approve pending accounts, and manage partner status.</p>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Business / Owner</th>
+                                    <th>Category</th>
+                                    <th>City</th>
+                                    <th>Experience</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-providers-tbody-2">
+                                <!-- Mirror of providers -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Users Management -->
+            <div id="admin-section-users" class="admin-tab-section" style="display: none;">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Registered User Directory</h1>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">View customers, service providers, and administrative staff accounts.</p>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name & Email</th>
+                                    <th>Phone</th>
+                                    <th>Role</th>
+                                    <th>City</th>
+                                    <th>Joined Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-users-tbody">
+                                <tr>
+                                    <td colspan="7" style="text-align: center; padding: 2rem;">Loading registered users...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: Service Categories Management -->
+            <div id="admin-section-categories" class="admin-tab-section" style="display: none;">
+                <div class="dashboard-header">
+                    <div>
+                        <h1 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Service Categories</h1>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Manage offerings available on the platform directory.</p>
+                    </div>
+                    <button onclick="openAddCategoryModal()" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add New Category
+                    </button>
+                </div>
+
+                <div class="data-card">
+                    <div class="table-responsive">
+                        <table class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Icon</th>
+                                    <th>Category Name</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-categories-tbody">
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 2rem;">Loading categories...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
